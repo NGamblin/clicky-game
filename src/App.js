@@ -14,26 +14,28 @@ class App extends React.Component {
   handleCardClicked = id => {
     console.log("Clicked: " + id)
     this.setState({ currentScore: this.state.currentScore + 1 })
+    this.setState({cards: this.state.cards.sort(function(a, b) {
+      return 0.5 - Math.random();
+    })
+  })}
 
-  } 
 
-  
-  render(){
-  return (
-    <div>
-      <Navbar
-      currentScore= {this.state.currentScore}
-      />
-      {this.state.cards.map(card => (
-      <Card
-      id={card.id}
-      key={card.id}
-      image={card.image}
-      handleCardClicked={this.handleCardClicked}
-      />
-      ))}
-    </div>
-  );
-}
+  render() {
+    return (
+      <div>
+        <Navbar
+          currentScore={this.state.currentScore}
+        />
+        {this.state.cards.map(card => (
+          <Card
+            id={card.id}
+            key={card.id}
+            image={card.image}
+            handleCardClicked={this.handleCardClicked}
+          />
+        ))}
+      </div>
+    );
+  }
 }
 export default App;
