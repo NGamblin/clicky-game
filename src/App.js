@@ -4,20 +4,17 @@ import Navbar from "./components/navbar/"
 import cards from "./cards.json"
 // import Wrapper from "./components/Wrapper"
 
-let currentScore = 0;
 class App extends React.Component {
 
   state = {
     cards,
-    currentScore
+    currentScore: 0
   }
 
   handleCardClicked = id => {
     console.log("Clicked: " + id)
+    this.setState({ currentScore: this.state.currentScore + 1 })
 
-
-    currentScore++;
-    this.setState({ currentScore })
   } 
 
   

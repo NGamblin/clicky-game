@@ -10,7 +10,7 @@ function Card(props) {
             <img src={props.image} onClick={() => props.handleCardClicked(props.id)}/>
           </div>
         </div>
-       </div>
+      </div>
     );
   }
 
